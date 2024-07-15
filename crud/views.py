@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Product
 from django.urls import reverse_lazy
-from django.views.generic.detail import DetailView
 
  # Create your views here.
 class TopView(TemplateView):
@@ -28,4 +27,6 @@ class ProductDeleteView(DeleteView):
 
 class ProductDetailView(DetailView):
     model = Product
-    template_name = 'product_detail.html'
+    context_object_name = 'product_detail'
+    
+    
